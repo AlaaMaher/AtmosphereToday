@@ -1,6 +1,5 @@
 package com.alaa.atmospheretoday.ui.theme
 
-import android.annotation.SuppressLint
 import androidx.compose.ui.graphics.Color
 
 
