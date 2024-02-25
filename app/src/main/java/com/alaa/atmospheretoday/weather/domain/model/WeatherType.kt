@@ -1,4 +1,4 @@
-package com.alaa.atmospheretoday.domain
+package com.alaa.atmospheretoday.weather.domain.model
 
 import androidx.annotation.DrawableRes
 import com.alaa.atmospheretoday.R
