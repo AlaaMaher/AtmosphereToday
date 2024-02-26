@@ -74,7 +74,7 @@ fun WeatherCard(
                         )
 
                         Text(
-                            text = currentWeather.temperatureInCelsius.toString(),
+                            text = currentWeather.temperatureInCelsius,
                             fontSize = 50.sp,
                             style = MaterialTheme.typography.displaySmall,
                             color = Color.White
