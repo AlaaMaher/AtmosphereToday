@@ -31,7 +31,6 @@ import com.alaa.atmospheretoday.weather.domain.model.weather.Weather
 import com.alaa.atmospheretoday.weather.domain.model.weather.WeatherInfo
 import com.alaa.atmospheretoday.weather.presentation.screens.weather_screen.WeatherViewStates
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 @Composable
 fun WeatherCard(
