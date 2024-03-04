@@ -1,5 +1,7 @@
 package com.alaa.atmospheretoday.weather.presentation.components
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -28,6 +30,8 @@ import com.alaa.atmospheretoday.weather.domain.model.WeatherType
 import com.alaa.atmospheretoday.weather.domain.model.weather.Weather
 import com.alaa.atmospheretoday.weather.domain.model.weather.WeatherInfo
 import com.alaa.atmospheretoday.weather.presentation.screens.weather_screen.WeatherViewStates
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @Composable
 fun WeatherCard(
@@ -167,12 +171,14 @@ fun WeatherCard(
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 @Preview(showBackground = true)
 fun WeatherCardPreview() {
 
     val wt: WeatherType = WeatherType.fromWMO(81)
     val weather = Weather(
+        LocalDateTime.now(),
         "19" + " \u2103",
         "24" + " \u2103",
         "10" + " \u2103",
@@ -182,7 +188,13 @@ fun WeatherCardPreview() {
         wt
     )
 
-    val weatherInfo = WeatherInfo(weather)
+
+    val weatherList = listOf(weather)
+
+
+    var weatherDay: Map<Int, List<Weather>> = mutableMapOf()
+    weatherDay = weatherDay.plus(0 to weatherList)
+    val weatherInfo = WeatherInfo(weatherDay, weather)
     val weatherViewStates = WeatherViewStates(false, weatherInfo)
     WeatherCard(state = weatherViewStates)
 }
